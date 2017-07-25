@@ -16,7 +16,9 @@ Author URI: http://www.wpbackoffice.com
 * 	@return void
 */
 
+add_filter('woocommerce_product_get_default_attributes', 'setup_swatches', 10, 1);
 add_filter('woocommerce_product_default_attributes', 'setup_swatches', 10, 1);
+
 
 function setup_swatches($selected_attributes) {
 	$varation_names = wpbo_get_variation_values();
