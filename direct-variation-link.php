@@ -41,16 +41,18 @@ function setup_swatches($selected_attributes) {
 */		
 function wpbo_get_variation_values() {
 	global $product;
-	
+	if($product !=null){
+        $available_variations = $product->get_variation_attributes();
+        $varation_names = array();
+
+        foreach ( $available_variations as $key => $variations ) {
+            array_push( $varation_names, $key );
+        }
+
+        return $varation_names;
+    }
 	// Create an array of possible variations
-	$available_variations = $product->get_variation_attributes();
-	$varation_names = array();
-	
-	foreach ( $available_variations as $key => $variations ) {
-		array_push( $varation_names, $key );
-	}
-	
-	return $varation_names;
+
 }
 
 /*
@@ -64,12 +66,14 @@ function wpbo_get_variation_values() {
 */	
 function wpbo_get_variation_start_values( $varation_names ) {
 	global $product;
-
-	$all_variations = $product->get_variation_attributes();
+    $start_vals = array();
+    if($product != null)
+    {
+        $all_variations = $product->get_variation_attributes();
 	$_GET_lower = array_change_key_case($_GET, CASE_LOWER);
 
 	// Check to see if any of the attributes are in $_GET vars
-	$start_vals = array();
+
 
 	foreach ( $varation_names as $name ) {
 	
@@ -104,7 +108,7 @@ function wpbo_get_variation_start_values( $varation_names ) {
 				$start_vals[ $lower_name ] = $_GET_lower[ $clean_name ];
 			}
 		}
-	}
+	}}
 	
 	return $start_vals;
 }
