@@ -1,0 +1,19 @@
+{
+  "name": "marcoescher/woocommerce-direct-variation-link",
+  "description": "Link directly to a specific WooCommerce product variation using get variables",
+  "keywords": ["wordpress", "plugin", "woocommerce"],
+  "homepage": "http://www.wpbackoffice.com/plugins/woocommerce-direct-variation-link/",
+  "license": "GPL-2.0-or-later",
+  "version": "1.1.0",
+  "authors": [
+    {
+      "name": "WP BackOffice",
+      "homepage": "http://www.wpbackoffice.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.3.2",
+    "composer/installers": "v1.0.6"
+  }
+}
